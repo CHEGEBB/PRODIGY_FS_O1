@@ -5,7 +5,7 @@ const LoginPage = () => {
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
             <button>Login</button>
-            <p>Don't have an account? <a href="#">Sign Up</a></p>
+            <p>Don't have an account? <a href="/">Sign Up</a></p>
         </div>
      );
 }
