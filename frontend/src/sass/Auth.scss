@@ -153,6 +153,15 @@ $deep-space-black: #000033;
 .overlay-right {
     right: 0;
     transform: translateX(0);
+    padding: 10px;
+    .vector{
+      img{
+        width: 150px;
+        height: auto;
+        margin-top: 20px;
+        margin-left: 50px;
+      }
+    }
 }
 
 .auth-container.sign-up-mode .overlay-right {

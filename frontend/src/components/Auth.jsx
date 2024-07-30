@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import "../sass/Auth.scss";
+import Vector1 from "../images/undraw_welcoming_re_x0qo (1).svg";
+import Vector2  from "../images/undraw_happy_announcement_re_tsm0.svg";
 
 const AuthPage = () => {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -52,11 +54,17 @@ const AuthPage = () => {
                         <h2>Welcome Back!</h2>
                         <p>Already have an account? Sign in here!</p>
                         <button className="ghost" onClick={toggleMode}>Sign In</button>
+                        <div className="vectorleft">
+                            <img src={Vector2} alt="vector" />
+                        </div>
                     </div>
                     <div className="overlay-panel overlay-right">
                         <h2>Hello, Friend!</h2>
                         <p>Don't have an account? Sign up here!</p>
                         <button className="ghost" onClick={toggleMode}>Sign Up</button>
+                        <div className="vector">
+                        <img src={Vector1} alt="vector" />
+                    </div>
                     </div>
                 </div>
             </div>
