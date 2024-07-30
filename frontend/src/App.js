@@ -1,12 +1,43 @@
 import './App.scss';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import Auth from './components/Auth';
+import Dashboard from './components/Dashboard';
+import NotFound from './components/NotFound';
 
-function App() {
+const ProtectedRoute = ({ isAuthenticated }) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+  return <Outlet />;
+};
+
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
-    <div className="App">
-    <Auth />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<Auth handleLogin={handleLogin} />} />
+          
+          <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+            <Route path="/dashboard" element={<Dashboard handleLogout={handleLogout} />} />
+          </Route>
+          
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
