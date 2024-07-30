@@ -20,14 +20,8 @@ const AuthPage = () => {
                         <input type="password" placeholder="Password" />
                         <button type="submit">Login</button>
                         <div className="social-media-login">
-                            <button className="facebook-btn">
                                 <FontAwesomeIcon icon={faFacebook} />
-                                Sign in with Facebook
-                            </button>
-                            <button className="google-btn">
                                 <FontAwesomeIcon icon={faGoogle} />
-                                Sign in with Google
-                            </button>
                         </div>
                     </form>
                     <form className="sign-up-form">
