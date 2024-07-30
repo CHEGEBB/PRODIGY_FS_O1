@@ -1,10 +1,10 @@
 import './App.scss';
-import Login from './components/Auth';
+import Auth from './components/Auth';
 
 function App() {
   return (
     <div className="App">
-    <Login />
+    <Auth />
     </div>
   );
 }
