@@ -1,59 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import "../sass/Auth.scss"
+import "../sass/Auth.scss";
+
 const AuthPage = () => {
-    return ( 
-        <div className="container">
-            <div className="login-container">
-                <h2>Login</h2>
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
-                <button type="submit">Login</button>
-                <div className="forgot-password">
-                    <a href="/">Forgot Password?</a>
-                </div>
-                <div className="sign-up">
-                    <span>Don't have an account?</span>
-                    <a href="/">Sign Up</a>
-                </div>
-                <div className="social-media-login">
-                    <button className="facebook-btn">
-                        <FontAwesomeIcon icon={faFacebook} />
-                        Sign in with Facebook
-                    </button>
-                    <button className="google-btn">
-                        <FontAwesomeIcon icon={faGoogle} />
-                        Sign in with Google
-                    </button>
+    const [isSignUp, setIsSignUp] = useState(false);
+
+    const toggleMode = () => {
+        setIsSignUp(!isSignUp);
+    };
+
+    return (
+        <div className={`auth-container ${isSignUp ? 'sign-up-mode' : ''}`}>
+            <div className="forms-container">
+                <div className="signin-signup">
+                    <form className="sign-in-form">
+                        <h2>Login</h2>
+                        <input type="text" placeholder="Username" />
+                        <input type="password" placeholder="Password" />
+                        <button type="submit">Login</button>
+                        <div className="social-media-login">
+                            <button className="facebook-btn">
+                                <FontAwesomeIcon icon={faFacebook} />
+                                Sign in with Facebook
+                            </button>
+                            <button className="google-btn">
+                                <FontAwesomeIcon icon={faGoogle} />
+                                Sign in with Google
+                            </button>
+                        </div>
+                    </form>
+                    <form className="sign-up-form">
+                        <h2>Sign Up</h2>
+                        <input type="text" placeholder="Username" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Confirm Password" />
+                        <button type="submit">Sign Up</button>
+                        <div className="social-media-signup">
+                            <button className="facebook-btn">
+                                <FontAwesomeIcon icon={faFacebook} />
+                                Sign up with Facebook
+                            </button>
+                            <button className="google-btn">
+                                <FontAwesomeIcon icon={faGoogle} />
+                                Sign up with Google
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div className="signup-container">
-                <h2>Sign Up</h2>
-                <input type="text" placeholder="Username" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <input type="password" placeholder="Confirm Password" />
-                <button type="submit">Sign Up</button>
-                <div className="have-account">
-                    <span>Already have an account?</span>
-                    <a href="/">Login</a>
+            <div className="overlay-container">
+                <div className="overlay">
+                    <div className="overlay-panel overlay-left">
+                        <h2>Welcome Back!</h2>
+                        <p>Already have an account? Sign in here!</p>
+                        <button className="ghost" onClick={toggleMode}>Sign In</button>
+                    </div>
+                    <div className="overlay-panel overlay-right">
+                        <h2>Hello, Friend!</h2>
+                        <p>Don't have an account? Sign up here!</p>
+                        <button className="ghost" onClick={toggleMode}>Sign Up</button>
+                    </div>
                 </div>
-                <div className="terms-and-conditions">
-                    <input type="checkbox" id="terms-conditions" />
-                    <label htmlFor="terms-conditions">I agree to the Terms and Conditions</label>
-                </div>
-                <div className="social-media-signup">
-                    <button className="facebook-btn">
-                        <FontAwesomeIcon icon={faFacebook} />
-                        Sign up with Facebook
-                    </button>
-                    <button className="google-btn"></button>
-            </div>
             </div>
         </div>
-        
-     );
+    );
 }
- 
+
 export default AuthPage;
