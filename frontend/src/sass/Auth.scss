@@ -4,6 +4,21 @@ $font-poppins: 'Poppins', sans-serif;
 $font-jost: 'Jost', sans-serif;
 $font-sans-serif: 'Open Sans', sans-serif;
 $font-outfit: 'Outfit', sans-serif;
+$celestial-blue: #4A90E2;
+$sky-blue: #87CEEB;
+$midnight-blue: #191970;
+$cosmic-white: #FFFAFA;
+$stardust-white: #F8F8FF;
+$slate-grey: #708090;
+$nebula-green: #7CFC00;
+$aurora-green: #00FF7F;
+$mars-red: #FF4500;
+$supernova-red: #E23D28;
+$galaxy-purple: #663399;
+$lunar-grey: #878787;
+$solar-yellow: #FDB813;
+$cosmic-lavender: #E6E6FA;
+$deep-space-black: #000033;
 .auth-container {
     background-color: #fff;
     border-radius: 10px;
@@ -93,9 +108,9 @@ $font-outfit: 'Outfit', sans-serif;
 }
 
 .overlay {
-    background: #FF416C;
-    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    background: $galaxy-purple;
+    background: -webkit-linear-gradient(to right,$galaxy-purple, $celestial-blue);
+    background: linear-gradient(to right, $celestial-blue, $galaxy-purple);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

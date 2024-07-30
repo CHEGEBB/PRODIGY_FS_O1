@@ -39,10 +39,9 @@ const AuthPage = () => {
                         <div className="facebook">
                                 <FontAwesomeIcon icon={faFacebook} />
                                 </div>
-                            <button className="google-btn">
+                            <div className="google">
                                 <FontAwesomeIcon icon={faGoogle} />
-                                Sign up with Google
-                            </button>
+                                </div>
                         </div>
                     </form>
                 </div>
