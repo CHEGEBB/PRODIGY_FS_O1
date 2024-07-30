@@ -20,8 +20,12 @@ const AuthPage = () => {
                         <input type="password" placeholder="Password" />
                         <button type="submit">Login</button>
                         <div className="social-media-login">
+                        <div className="facebook">
                                 <FontAwesomeIcon icon={faFacebook} />
+                                </div>
+                                <div className="google">
                                 <FontAwesomeIcon icon={faGoogle} />
+                                </div>
                         </div>
                     </form>
                     <form className="sign-up-form">
@@ -32,10 +36,9 @@ const AuthPage = () => {
                         <input type="password" placeholder="Confirm Password" />
                         <button type="submit">Sign Up</button>
                         <div className="social-media-signup">
-                            <button className="facebook-btn">
+                        <div className="facebook">
                                 <FontAwesomeIcon icon={faFacebook} />
-                                Sign up with Facebook
-                            </button>
+                                </div>
                             <button className="google-btn">
                                 <FontAwesomeIcon icon={faGoogle} />
                                 Sign up with Google

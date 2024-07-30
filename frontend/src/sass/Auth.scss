@@ -185,10 +185,20 @@ button.ghost {
 .social-media-login,
 .social-media-signup {
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
 }
 
 
-.facebook-btn svg,
-.google-btn svg {
+.facebook svg,
+.google svg {
     margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid crimson;
+    padding: 10px;
+    border-radius: 50%;
 }
