@@ -28,9 +28,8 @@ const App = () => {
       <div className="App">
         <Routes>
           <Route path="/" element={<Auth handleLogin={handleLogin} />} />
-          <Route path="/dashboard" element={<Dashboard handleLogout={handleLogout} />} />
-
           <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path="/dashboard" element={<Dashboard handleLogout={handleLogout} />} />
           </Route>
           
           <Route path="*" element={<NotFound />} />
