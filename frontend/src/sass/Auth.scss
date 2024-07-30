@@ -22,13 +22,13 @@ $deep-space-black: #000033;
 .auth-container {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.45);
     position: relative;
     overflow: hidden;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    margin: 50px auto;
+    margin: 150px auto;
     font-family: $font-outfit;
 }
 
@@ -144,6 +144,15 @@ $deep-space-black: #000033;
 
 .overlay-left {
     transform: translateX(-20%);
+    padding: 10px;
+    .vectorleft{
+        img{
+            width: 150px;
+            height: auto;
+            margin-top: 20px;
+            margin-left: 50px;
+          }
+    }
 }
 
 .auth-container.sign-up-mode .overlay-left {
@@ -171,6 +180,7 @@ $deep-space-black: #000033;
 h2 {
     font-size: 2rem;
     margin-bottom: 15px;
+    color: $deep-space-black;
 }
 
 input {
@@ -179,16 +189,34 @@ input {
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     font-family: $font-outfit;
+    border: 1px solid $galaxy-purple;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $celestial-blue;
+        background-color:$cosmic-white;
+    }
+    &.error {
+        border: 1px solid red;
+    }
+    &.success {
+        border: 1px solid green;
+    }
+    &:hover {
+        background-color: #ddd;
+        border: 1px solid $galaxy-purple;
+    }
 }
 
 button {
     border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
+    border: 1px solid #708090;
+    background-color: #663399;
     color: #FFFFFF;
     font-size: 12px;
+    font-family: $font-rubik;
     font-weight: bold;
     padding: 12px 45px;
     letter-spacing: 1px;
@@ -204,6 +232,9 @@ button:active {
 button.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
+    &:hover {
+        border: 2px solid $midnight-blue;
+    }
 }
 
 .social-media-login,
@@ -222,7 +253,15 @@ button.ghost {
     margin-right: 10px;
     width: 20px;
     height: 20px;
-    border: 2px solid crimson;
+    border: 2px solid $galaxy-purple;
     padding: 10px;
     border-radius: 50%;
+    color: #663399;
+    &:hover {
+        background-color: $galaxy-purple;
+        color: #FFFFFF;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        transform: scale(1.1);
+    }
 }
