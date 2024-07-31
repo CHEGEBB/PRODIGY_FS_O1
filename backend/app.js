@@ -5,3 +5,6 @@ const dotenv = require('dotenv');
 const userRouter = require('./routes/authRoutes');
 
 const app = express();
+
+//auth routes
+app.use('/api', userRouter);
