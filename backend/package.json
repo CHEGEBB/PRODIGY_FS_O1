@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4",
+    "venv": "^1.0.1"
+  }
+}
