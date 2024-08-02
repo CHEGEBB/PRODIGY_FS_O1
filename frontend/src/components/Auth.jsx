@@ -39,7 +39,7 @@ const AuthPage = ({ handleLogin }) => {
                     }, 3000);
                     return;
                 }
-                const response = await axios.post('http://localhost:5000/api/auth/signup', {
+                const response = await axios.post('https://auth-backend-dafk.onrender.com/api/auth/signup', {
                     username,
                     email,
                     password
@@ -52,7 +52,7 @@ const AuthPage = ({ handleLogin }) => {
                     setIsSignUp(false);
                 }, 3000);
             } else {
-                const response = await axios.post('http://localhost:5000/api/auth/login', {
+                const response = await axios.post('https://auth-backend-dafk.onrender.com/api/auth/login', {
                     email,
                     password
                 });
