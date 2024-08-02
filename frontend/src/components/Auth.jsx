@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import "../sass/Auth.scss";
@@ -13,39 +13,15 @@ const AuthPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [passwordStrength, setPasswordStrength] = useState('');
 
     const toggleMode = () => {
         setIsSignUp(!isSignUp);
         setError('');
-        setSuccess('');
-        setPassword('');
-        setConfirmPassword('');
-        setPasswordStrength('');
-    };
-
-    useEffect(() => {
-        checkPasswordStrength(password);
-    }, [password]);
-
-    const checkPasswordStrength = (password) => {
-        const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-        const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-
-        if (strongRegex.test(password)) {
-            setPasswordStrength('strong');
-        } else if (mediumRegex.test(password)) {
-            setPasswordStrength('medium');
-        } else {
-            setPasswordStrength('weak');
-        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        setSuccess('');
 
         try {
             if (isSignUp) {
@@ -53,16 +29,11 @@ const AuthPage = () => {
                     setError('Passwords do not match');
                     return;
                 }
-                if (passwordStrength !== 'strong') {
-                    setError('Please use a stronger password');
-                    return;
-                }
                 const response = await axios.post('http://localhost:5000/api/auth/signup', {
                     username,
                     email,
                     password
                 });
-                setSuccess('Signup successful! You can now log in.');
                 console.log('Signup successful', response.data);
                 // Handle successful signup (e.g., show success message, redirect)
             } else {
@@ -70,7 +41,6 @@ const AuthPage = () => {
                     username,
                     password
                 });
-                setSuccess('Login successful!');
                 console.log('Login successful', response.data);
                 // Handle successful login (e.g., save token, redirect)
             }
@@ -120,23 +90,21 @@ const AuthPage = () => {
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
                         <input
                             type="password"
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
-                        {passwordStrength && (
-                            <div className={`password-strength ${passwordStrength}`}>
-                                Password strength: {passwordStrength}
-                            </div>
-                        )}
                         <input
                             type="password"
                             placeholder="Confirm Password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
                         />
                         <button type="submit">Sign Up</button>
                         <div className="social-media-signup">
@@ -171,7 +139,6 @@ const AuthPage = () => {
                 </div>
             </div>
             {error && <div className="error-message">{error}</div>}
-            {success && <div className="success-message">{success}</div>}
         </div>
     );
 }
