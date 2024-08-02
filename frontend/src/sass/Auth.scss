@@ -9,17 +9,7 @@ $sky-blue: #87CEEB;
 $midnight-blue: #191970;
 $cosmic-white: #FFFAFA;
 $stardust-white: #F8F8FF;
-$slate-grey: #708090;
-$nebula-green: #7CFC00;
-$aurora-green: #00FF7F;
-$mars-red: #FF4500;
-$supernova-red: #E23D28;
 $galaxy-purple: #663399;
-$lunar-grey: #878787;
-$solar-yellow: #FDB813;
-$cosmic-lavender: #E6E6FA;
-$deep-space-black: #000033;
-// Slate Blues
 $slate-blue-100: #f0f5ff;
 $slate-blue-200: #d9e3ff;
 $slate-blue-300: #b3c8ff;
@@ -30,8 +20,6 @@ $slate-blue-700: #335b99;
 $slate-blue-800: #1a3e66;
 $slate-blue-900: #001133;
 $slate-blue-1000: #000822;
-
-// Celestial Blues
 $celestial-blue-100: #e0f7ff;
 $celestial-blue-200: #b3ecff;
 $celestial-blue-300: #80e1ff;
@@ -289,12 +277,12 @@ button.ghost {
     margin-right: 10px;
     width: 20px;
     height: 20px;
-    border: 2px solid $galaxy-purple;
+    border: 2px solid $celestial-blue-600;
     padding: 10px;
     border-radius: 50%;
-    color: #663399;
+    color: $celestial-blue-600;
     &:hover {
-        background-color: $galaxy-purple;
+        background-color: $celestial-blue-500;
         color: #FFFFFF;
         transition: all 0.3s ease-in-out;
         cursor: pointer;
