@@ -281,15 +281,46 @@ button.ghost {
       color: #2ecc40;
     }
   }
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .success-message, .error-message {
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    animation: slide-in 0.5s forwards;
+  }
   
   .success-message {
     color: #2ecc40;
-    margin-top: 10px;
-    text-align: center;
   }
   
   .error-message {
     color: #ff4136;
-    margin-top: 10px;
-    text-align: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 10px;
+    height: 50px;
+    width: 200px;
+    transform: translateX(-40%);
   }
+  
+  .hidden {
+    animation: slide-out 0.5s forwards;
+  }
+  

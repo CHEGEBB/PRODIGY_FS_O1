@@ -13,6 +13,7 @@ const AuthPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [showMessage, setShowMessage] = useState(false);
 
     const toggleMode = () => {
         setIsSignUp(!isSignUp);
@@ -27,6 +28,10 @@ const AuthPage = () => {
             if (isSignUp) {
                 if (password !== confirmPassword) {
                     setError('Passwords do not match');
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        setShowMessage(false);
+                    }, 3000);
                     return;
                 }
                 const response = await axios.post('http://localhost:5000/api/auth/signup', {
@@ -38,7 +43,7 @@ const AuthPage = () => {
                 // Handle successful signup (e.g., show success message, redirect)
             } else {
                 const response = await axios.post('http://localhost:5000/api/auth/login', {
-                    username,
+                    email,
                     password
                 });
                 console.log('Login successful', response.data);
@@ -46,6 +51,10 @@ const AuthPage = () => {
             }
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred');
+            setShowMessage(true);
+            setTimeout(() => {
+                setShowMessage(false);
+            }, 3000);
         }
     };
 
@@ -57,8 +66,8 @@ const AuthPage = () => {
                         <h2>Login</h2>
                         <input
                             type="text"
-                            placeholder="Username"
-                            value={username}
+                            placeholder="email"
+                            value={email}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                         <input
@@ -138,7 +147,7 @@ const AuthPage = () => {
                     </div>
                 </div>
             </div>
-            {error && <div className="error-message">{error}</div>}
+            {error && <div className={`error-message ${showMessage ? '' : 'hidden'}`}>{error}</div>}
         </div>
     );
 }

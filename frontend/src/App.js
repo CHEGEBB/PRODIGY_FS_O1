@@ -29,9 +29,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Auth handleLogin={handleLogin} />} />
           <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
-          <Route path="/dashboard" element={<Dashboard handleLogout={handleLogout} />} />
+            <Route path="/dashboard" element={<Dashboard handleLogout={handleLogout} />} />
           </Route>
-          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
