@@ -265,3 +265,31 @@ button.ghost {
         transform: scale(1.1);
     }
 }
+.password-strength {
+    margin-top: 5px;
+    font-size: 0.8em;
+    
+    &.weak {
+      color: #ff4136;
+    }
+    
+    &.medium {
+      color: #ffdc00;
+    }
+    
+    &.strong {
+      color: #2ecc40;
+    }
+  }
+  
+  .success-message {
+    color: #2ecc40;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .error-message {
+    color: #ff4136;
+    margin-top: 10px;
+    text-align: center;
+  }
