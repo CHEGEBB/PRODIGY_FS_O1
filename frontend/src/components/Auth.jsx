@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import "../sass/Auth.scss";
 import Vector1 from "../images/undraw_welcoming_re_x0qo (1).svg";
 import Vector2 from "../images/undraw_happy_announcement_re_tsm0.svg";
 import axios from 'axios';
 
-const AuthPage = () => {
+const AuthPage = ({ handleLogin }) => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [showMessage, setShowMessage] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMode = () => {
         setIsSignUp(!isSignUp);
         setError('');
+        setSuccess('');
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setSuccess('');
 
         try {
             if (isSignUp) {
@@ -40,14 +45,20 @@ const AuthPage = () => {
                     password
                 });
                 console.log('Signup successful', response.data);
-                // Handle successful signup (e.g., show success message, redirect)
+                setSuccess('Sign up successful! You can now log in.');
+                setShowMessage(true);
+                setTimeout(() => {
+                    setShowMessage(false);
+                    setIsSignUp(false);
+                }, 3000);
             } else {
                 const response = await axios.post('http://localhost:5000/api/auth/login', {
                     email,
                     password
                 });
                 console.log('Login successful', response.data);
-                // Handle successful login (e.g., save token, redirect)
+                handleLogin();
+                navigate('/dashboard');
             }
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred');
@@ -65,16 +76,18 @@ const AuthPage = () => {
                     <form className="sign-in-form" onSubmit={handleSubmit}>
                         <h2>Login</h2>
                         <input
-                            type="text"
-                            placeholder="email"
+                            type="email"
+                            placeholder="Email"
                             value={email}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
                         <input
                             type="password"
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                         <button type="submit">Login</button>
                         <div className="social-media-login">
@@ -93,6 +106,7 @@ const AuthPage = () => {
                             placeholder="Username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
+                            required
                         />
                         <input
                             type="email"
@@ -148,6 +162,7 @@ const AuthPage = () => {
                 </div>
             </div>
             {error && <div className={`error-message ${showMessage ? '' : 'hidden'}`}>{error}</div>}
+            {success && <div className={`success-message ${showMessage ? '' : 'hidden'}`}>{success}</div>}
         </div>
     );
 }
