@@ -19,8 +19,38 @@ $lunar-grey: #878787;
 $solar-yellow: #FDB813;
 $cosmic-lavender: #E6E6FA;
 $deep-space-black: #000033;
+// Slate Blues
+$slate-blue-100: #f0f5ff;
+$slate-blue-200: #d9e3ff;
+$slate-blue-300: #b3c8ff;
+$slate-blue-400: #8caeff;
+$slate-blue-500: #6694ff;
+$slate-blue-600: #4c78cc;
+$slate-blue-700: #335b99;
+$slate-blue-800: #1a3e66;
+$slate-blue-900: #001133;
+$slate-blue-1000: #000822;
+
+// Celestial Blues
+$celestial-blue-100: #e0f7ff;
+$celestial-blue-200: #b3ecff;
+$celestial-blue-300: #80e1ff;
+$celestial-blue-400: #4dd6ff;
+$celestial-blue-500: #1acbff;
+$celestial-blue-600: #009ecc;
+$celestial-blue-700: #007599;
+$celestial-blue-800: #004c66;
+$celestial-blue-900: #002333;
+$celestial-blue-1000: #00121a;
+
+body{
+    background: url("../images/rm222batch3-mind-03.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
 .auth-container {
-    background-color: #fff;
+    background-color:$celestial-blue-100;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.45);
     position: relative;
@@ -30,8 +60,7 @@ $deep-space-black: #000033;
     min-height: 480px;
     margin: 150px auto;
     font-family: $font-outfit;
-    background: url("../images/17545.jpg");
-    
+
 }
 
 .forms-container {
@@ -111,8 +140,8 @@ $deep-space-black: #000033;
 
 .overlay {
     background: $galaxy-purple;
-    background: -webkit-linear-gradient(to right,$galaxy-purple, $celestial-blue);
-    background: linear-gradient(to right, $celestial-blue, $galaxy-purple);
+    background: -webkit-linear-gradient(to right,$celestial-blue-400, $celestial-blue-500);
+    background: linear-gradient(to right, $celestial-blue-600, $celestial-blue-700);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -182,18 +211,19 @@ $deep-space-black: #000033;
 h2 {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: $deep-space-black;
+    color: linear-gradient(to right, $celestial-blue-400, $celestial-blue-500);
 }
 
 input {
-    background-color: #eee;
+    background-color: aliceblue;
     border: none;
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
     border-radius: 8px;
     font-family: $font-outfit;
-    border: 1px solid $galaxy-purple;
+    border: 1px solid $celestial-blue-300;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 
     &:focus {
         outline: none;
@@ -214,8 +244,8 @@ input {
 
 button {
     border-radius: 20px;
-    border: 1px solid #708090;
-    background-color: #663399;
+    border: 1px solid $celestial-blue-300;
+    background-color: $celestial-blue-600;
     color: #FFFFFF;
     font-size: 12px;
     font-family: $font-rubik;
@@ -225,6 +255,10 @@ button {
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
+    &:hover {
+        background-color: $celestial-blue-500;
+        transform: scale(0.95);
+    }
 }
 
 button:active {
@@ -235,7 +269,7 @@ button.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
     &:hover {
-        border: 2px solid $midnight-blue;
+        border: 1px solid $celestial-blue-400;
     }
 }
 
