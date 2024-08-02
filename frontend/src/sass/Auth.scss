@@ -225,7 +225,6 @@ input {
         border: 1px solid green;
     }
     &:hover {
-        background-color: #ddd;
         border: 1px solid $galaxy-purple;
     }
 }
@@ -335,13 +334,17 @@ button.ghost {
   }
   
   .error-message {
-    color: #ff4136;
+    color: $celestial-blue;
+    font-family: $font-poppins;
+    font-weight: 600;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(30, 138, 163, 0.4);
     top: 10px;
     height: 50px;
     width: 200px;
     transform: translateX(-40%);
+    padding: 10px;
+    border-right: 3px solid $celestial-blue-400;
   }
   
   .hidden {
